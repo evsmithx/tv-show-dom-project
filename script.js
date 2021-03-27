@@ -33,4 +33,24 @@ function makeNodeForEpisode(episode){
     return para;
 }
 
+function searchFunction() {
+  // Declare variables
+  const input = document.getElementById('myInput');
+  const filter = input.value.toUpperCase();
+
+  const rootElem = document.getElementById("root");
+  const articles = rootElem.getElementsByTagName('article');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (let i = 0; i < articles.length; i++) {
+    let p = articles[i].getElementsByTagName("p")[0];
+    let h2 = articles[i].getElementsByTagName("h2")[0];
+    let txtValue = (p.textContent || p.innerText) + " " + (h2.textContent || h2.innerText);
+    if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+      articles[i].style.display = "";
+    } else {
+      articles[i].style.display = "none";
+    }
+  }
+}
 window.onload = setup;
