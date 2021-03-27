@@ -7,7 +7,10 @@ function setup() {
 
 function makeSelectorForShows(defaultShow){
   const select = document.getElementById("showSelector");
-  const allShows = getAllShows();
+  const allShows = getAllShows().sort((show1, show2) => {
+    return show1.name > show2.name;
+  });
+
   let option, show;
   for (show of allShows){
     option = document.createElement("option");
@@ -58,12 +61,8 @@ function makePageForEpisodes(episodeList) {
     option.innerText = `${episode.name} - S${episodeSeason}E${episodeNumber}`;
     select.appendChild(option);
   }
-  const source = document.createElement("div");
-  const rootElem = document.getElementById("root");
-  rootElem.appendChild(source);
-  source.innerHTML =
-    '<p>Info from <a href="http://TVMaze.com">TVMaze.com<a><p>';
 }
+
 
 function makeNodeForEpisode(episode) {
   const para = document.createElement("article");
