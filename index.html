@@ -9,13 +9,14 @@
   </head>
 
   <body>
-    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
     <div id="root">
+      <select id="showSelector" onchange="selectShowFunction(this[this.selectedIndex])"></select>
+      <select id="episodeSelector" onchange="selectFunction(this[this.selectedIndex])"></select>
+      <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search...">
+      <div id="episodes"></div>
     </div>
-
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
-
+    <!-- Loads a provided function called getAllShows() which returns all shows -->
+    <script src="shows.js"></script>
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
